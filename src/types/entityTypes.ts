@@ -1,4 +1,4 @@
 export interface AuthInput {
-  email: string;
-  password: string;
+  email: { value: string; valid: boolean };
+  password: { value: string; valid: boolean };
 }
