@@ -13,6 +13,7 @@
       <q-toolbar-title>
         <q-img src="../assets/myrtle-logo.png" class="!tw-w-20" alt="Logo" />
       </q-toolbar-title>
+      <!-- **** PROFILE MENU **** -->
       <div class="tw-mr-16">
         <q-btn dense flat no-wrap>
           Mohammad Zrar
@@ -42,6 +43,7 @@
           </q-menu>
         </q-btn>
       </div>
+      <!-- **** END OF POFILE MENU **** -->
     </q-toolbar>
   </q-header>
 </template>

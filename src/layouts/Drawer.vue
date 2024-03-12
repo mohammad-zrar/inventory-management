@@ -2,21 +2,25 @@
   <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500">
     <q-scroll-area class="fit">
       <q-list padding class="menu-list">
-        <q-item active clickable v-ripple>
-          <q-item-section avatar>
-            <q-icon name="store" />
-          </q-item-section>
+        <router-link :to="{ name: 'products' }">
+          <q-item :active="isActive('/products')" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="store" />
+            </q-item-section>
 
-          <q-item-section> Products </q-item-section>
-        </q-item>
+            <q-item-section> Products </q-item-section>
+          </q-item>
+        </router-link>
 
-        <q-item clickable v-ripple>
-          <q-item-section avatar>
-            <q-icon name="people" />
-          </q-item-section>
+        <router-link :to="{ name: 'employees' }">
+          <q-item :active="isActive('/employees')" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="people" />
+            </q-item-section>
 
-          <q-item-section> Send </q-item-section>
-        </q-item>
+            <q-item-section> Employees </q-item-section>
+          </q-item>
+        </router-link>
       </q-list>
     </q-scroll-area>
   </q-drawer>
@@ -25,13 +29,19 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from "vue";
 import { useDrawerStore } from "../store/DrawerStore.ts";
+import { useRoute, RouterLink } from "vue-router";
 
 const drawerStore = useDrawerStore();
 const drawer = ref<boolean>(drawerStore.isDrawerOpen);
+const route = useRoute();
 
 watchEffect(() => {
   drawer.value = drawerStore.isDrawerOpen;
 });
+
+const isActive = (routePath: string) => {
+  return route.path === routePath;
+};
 </script>
 <style lang="sass" scoped>
 .menu-list .q-item
