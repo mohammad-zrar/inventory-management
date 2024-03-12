@@ -1,34 +1,47 @@
 <template>
-  <div class="tw-flex tw-flex-col tw-h-screen">
-    <!-- Header -->
-    <div class="tw-bg-primary tw-text-white tw-p-4 tw-shadow-md">
-      <h1 class="tw-text-2xl tw-text-slate-900">Products</h1>
+  <div class="q-pa-md">
+    <div class="tw-bg-primary tw-text-slate-900 tw-p-4 tw-shadow-md">
+      <h1 class="tw-text-2xl">Product Page</h1>
+      <p class="tw-text-lg tw-mt-2">
+        Explore our delightful treats and desserts.
+      </p>
     </div>
+    <div class="tw-flex tw-justify-end tw-mt-4">
+      <!-- Search Input -->
+      <q-input
+        v-model="searchTerm"
+        outlined
+        placeholder="Search"
+        dense
+        class="tw-mr-2"
+      />
 
-    <!-- Content Area with Table -->
-    <div class="tw-flex-grow tw-p-4 tw-flex tw-flex-col">
-      <!-- Actions and Filters Header -->
-      <div class="tw-flex tw-justify-between tw-items-center tw-mb-4">
-        <h2 class="tw-text-lg tw-font-semibold">Actions and Filters</h2>
-        <!-- Add your action buttons or filters here -->
-      </div>
+      <!-- Filter Select -->
+      <q-select
+        :label="'Filter by product name'"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        filled
+        v-model="model"
+        :options="['Product name', 'employees', 'catagory']"
+        style="width: 250px"
+        dense
+      />
 
-      <!-- Your table component goes here -->
-      <table class="tw-w-full tw-bg-white tw-rounded-md tw-shadow-md">
-        <div class="q-pa-md">
-          <q-table
-            title="Products Table"
-            :rows="rows"
-            :columns="columns"
-            row-key="name"
-          />
-        </div>
-      </table>
+      <!-- Add Product Button -->
+      <q-btn class="tw-ml-2" color="primary" icon="add" label="Add Product" />
     </div>
+    <q-table
+      flat
+      bordered
+      title="Treats"
+      :rows="rows"
+      :columns="columns"
+      row-key="name"
+      color="blue-1"
+    />
   </div>
 </template>
-
-// Your script setup code here
 
 <script>
 const columns = [
@@ -180,7 +193,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* Add any additional styles here */
-</style>
