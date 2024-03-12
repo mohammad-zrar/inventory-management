@@ -39,9 +39,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
+import { useDrawerStore } from "../store/DrawerStore.ts";
 
-const drawer = ref<boolean>(false);
+const drawerStore = useDrawerStore();
+const drawer = ref<boolean>(drawerStore.isDrawerOpen);
+
+watchEffect(() => {
+  drawer.value = drawerStore.isDrawerOpen;
+});
 </script>
 <style lang="sass" scoped>
 .menu-list .q-item

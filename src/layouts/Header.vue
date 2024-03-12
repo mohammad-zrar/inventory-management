@@ -1,7 +1,14 @@
 <template>
   <q-header elevated>
     <q-toolbar class="glossy">
-      <q-btn flat round dense icon="menu" class="q-mr-sm" />
+      <q-btn
+        @click="toggleDrawer"
+        flat
+        round
+        dense
+        icon="menu"
+        class="q-mr-sm"
+      />
       <q-avatar>
         <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
       </q-avatar>
@@ -11,3 +18,12 @@
     </q-toolbar>
   </q-header>
 </template>
+
+<script lang="ts" setup>
+import { useDrawerStore } from "../store/DrawerStore";
+
+const drawerStore = useDrawerStore();
+function toggleDrawer() {
+  drawerStore.toggleDrawer();
+}
+</script>
