@@ -1,6 +1,6 @@
 <template>
   <q-header elevated>
-    <q-toolbar class="glossy">
+    <q-toolbar class="tw-bg-blue-400">
       <q-btn
         @click="toggleDrawer"
         flat
@@ -9,11 +9,10 @@
         icon="menu"
         class="q-mr-sm"
       />
-      <q-avatar>
-        <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-      </q-avatar>
 
-      <q-toolbar-title>Quasar Framework</q-toolbar-title>
+      <q-toolbar-title>
+        <q-img src="../assets/myrtle-logo.png" class="!tw-w-20" alt="Logo" />
+      </q-toolbar-title>
       <div class="tw-mr-16"><q-btn flat round dense icon="whatshot" /></div>
     </q-toolbar>
   </q-header>
