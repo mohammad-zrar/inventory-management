@@ -49,15 +49,23 @@
             color="secondary"
             icon="mode_edit"
             @click="onEdit(props.row)"
-          ></q-btn>
+          >
+            <q-tooltip class="!tw-bg-blue-400">
+              Edit Inventory
+            </q-tooltip></q-btn
+          >
           <q-btn
             dense
             color="negative"
             icon="delete"
             @click="onDelete(props.row)"
-          ></q-btn>
-        </q-td> </template
-    ></q-table>
+            ><q-tooltip class="!tw-bg-red-400">
+              Delete Inventory
+            </q-tooltip></q-btn
+          >
+        </q-td>
+      </template></q-table
+    >
   </div>
 </template>
 
