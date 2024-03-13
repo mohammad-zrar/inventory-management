@@ -8,6 +8,15 @@
   >
     <q-scroll-area class="fit">
       <q-list padding class="menu-list">
+        <router-link :to="{ name: 'inventory' }">
+          <q-item :active="isActive('/inventory')" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="inbox" />
+            </q-item-section>
+
+            <q-item-section> Inventory </q-item-section>
+          </q-item>
+        </router-link>
         <router-link :to="{ name: 'products' }">
           <q-item :active="isActive('/products')" clickable v-ripple>
             <q-item-section avatar>
