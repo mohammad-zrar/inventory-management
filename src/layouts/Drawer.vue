@@ -1,5 +1,11 @@
 <template>
-  <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500">
+  <q-drawer
+    v-model="drawer"
+    class="tw-border-2 tw-bg-gray-100"
+    show-if-above
+    :width="200"
+    :breakpoint="500"
+  >
     <q-scroll-area class="fit">
       <q-list padding class="menu-list">
         <router-link :to="{ name: 'products' }">

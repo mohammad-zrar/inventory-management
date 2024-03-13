@@ -1,23 +1,24 @@
 <template>
-  <q-header elevated>
-    <q-toolbar class="tw-bg-blue-400">
+  <q-header class="tw-shadow-md">
+    <q-toolbar class="tw-bg-blue-100">
       <q-btn
         @click="toggleDrawer"
         flat
         round
         dense
         icon="menu"
-        class="q-mr-sm"
+        class="q-mr-sm !tw-text-blue-900"
       />
 
       <q-toolbar-title>
-        <q-img src="../assets/myrtle-logo.png" class="!tw-w-20" alt="Logo" />
+        <q-img src="../assets/myrtle-logo.png" class="!tw-w-24" alt="Logo" />
       </q-toolbar-title>
       <!-- **** PROFILE MENU **** -->
-      <div class="tw-mr-16">
+      <div class="tw-mr-16 tw-text-blue-900">
         <q-btn dense flat no-wrap>
-          Mohammad Zrar
-          <q-icon name="arrow_drop_down" size="20px" />
+          <div class="tw-font-semibold">Mohammad Zrar</div>
+
+          <q-icon name="arrow_drop_down" class="tw-font-bold" size="20px" />
 
           <q-menu auto-close>
             <q-list dense>

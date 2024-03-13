@@ -6,7 +6,8 @@
         Explore our delightful treats and desserts.
       </p>
     </div>
-    <div class="tw-flex tw-justify-end tw-mt-4">
+    <!-- **** Actions **** -->
+    <div class="tw-flex tw-justify-end tw-mb-4 tw-mt-4">
       <!-- Search Input -->
       <q-input
         v-model="searchTerm"
@@ -31,6 +32,7 @@
       <!-- Add Product Button -->
       <q-btn class="tw-ml-2" color="primary" icon="add" label="Add Product" />
     </div>
+    <!-- **** END ACTIONS **** -->
     <q-table
       flat
       bordered
