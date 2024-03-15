@@ -1,6 +1,6 @@
 <template>
   <q-header class="tw-shadow-md">
-    <q-toolbar class="tw-bg-blue-100">
+    <q-toolbar class="tw-bg-blue-50">
       <q-btn
         @click="toggleDrawer"
         flat
@@ -14,11 +14,22 @@
         <q-img src="../assets/myrtle-logo.png" class="!tw-w-24" alt="Logo" />
       </q-toolbar-title>
       <!-- **** PROFILE MENU **** -->
-      <div class="tw-mr-16 tw-text-blue-900">
-        <q-btn dense flat no-wrap>
-          <div class="tw-font-semibold">Mohammad Zrar</div>
+      <div class="q-gutter-sm row items-center no-wrap tw-text-blue-950">
+        <q-btn class="!hover:tw-bg-transparent" dense flat no-wrap>
+          <div class="tw-flex tw-justify-center tw-align-middle">
+            <div class="tw-m-auto tw-mr-1">
+              <q-avatar size="32px">
+                <img src="https://cdn.quasar.dev/img/avatar3.jpg" />
+              </q-avatar>
+            </div>
 
-          <q-icon name="arrow_drop_down" class="tw-font-bold" size="20px" />
+            <div clas="tw-grid ">
+              <div class="tw-text-sm tw-normal-case">Mohammad Zrar</div>
+              <div class="tw-text-xs tw-normal-case">Front End Developer</div>
+            </div>
+
+            <div class="tw-m-auto"><q-icon name="arrow_drop_down" /></div>
+          </div>
 
           <q-menu auto-close>
             <q-list dense>
@@ -28,14 +39,12 @@
                 </q-item-section>
               </q-item>
               <q-separator />
-              <q-item clickable class="GL__menu-link">
-                <q-item-section>Your profile</q-item-section>
-              </q-item>
 
               <q-separator />
               <q-item clickable class="GL__menu-link">
-                <q-item-section>Help</q-item-section>
+                <q-item-section>Your profile</q-item-section>
               </q-item>
+              <q-separator />
 
               <q-item clickable class="GL__menu-link">
                 <q-item-section>Sign out</q-item-section>
@@ -50,6 +59,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import { useDrawerStore } from "../store/DrawerStore";
 
 const drawerStore = useDrawerStore();
@@ -57,3 +67,5 @@ function toggleDrawer() {
   drawerStore.toggleDrawer();
 }
 </script>
+
+<style scoped></style>
