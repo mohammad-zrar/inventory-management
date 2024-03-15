@@ -63,12 +63,14 @@ const formInput = ref<AuthInput>({
   password: { value: "", valid: true },
 });
 
+/* ---- Patterns for validate form inputs ---- */
 const patterns = {
   email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
   //             yourname @ domain   .  com          ( .uk )
   password: /^.{8,}$/i,
 };
 
+/* ---- Changing color while it's validate or not ---- */
 const emailInputColor = computed(() => {
   return patterns.email.test(formInput.value.email.value)
     ? "primary"
@@ -79,7 +81,9 @@ const passwordInputColor = computed(() => {
     ? "primary"
     : "red-12";
 });
+/* ---- ---- ---- */
 
+/* ---- Validation for form inputs ---- */
 function validateEmail(): void {
   formInput.value.email.valid = patterns.email.test(
     formInput.value.email.value
@@ -90,7 +94,7 @@ function validatePassword(): void {
     formInput.value.password.value
   );
 }
-
+/* ---- END of validation for form inputs ---- */
 function submit(): void {
   console.log("Authenticate");
 }
