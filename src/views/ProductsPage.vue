@@ -4,7 +4,7 @@
     <template #pageTitle>
       <span>Product Page</span>
     </template>
-    <template #pageDescription>
+    <template #pageDesc>
       <span>See and manipulate all your product data </span>
     </template>
   </view-header>
@@ -87,8 +87,8 @@
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { useQuasar } from "quasar";
-import { ProductColumnType } from "../types/entityTypes.ts";
-import { ProductRowType } from "../types/entityTypes.ts";
+import { TableColumn } from "../types/entityTypes.ts";
+import { ProductType } from "../types/entityTypes.ts";
 import ViewHeader from "../components/ViewHeader.vue";
 
 const $q = useQuasar();
@@ -103,7 +103,7 @@ function onEdit(props: number) {
 function onDelete(props: number) {
   console.log(props);
 }
-const columns: ProductColumnType[] = [
+const columns: TableColumn<ProductType>[] = [
   {
     name: "productId",
     label: "Product ID",
@@ -142,7 +142,7 @@ const columns: ProductColumnType[] = [
   },
 ];
 
-const rows: ProductRowType[] = [
+const rows: ProductType[] = [
   {
     productId: 1,
     productName: "Moniter",

@@ -4,7 +4,7 @@
     <template #pageTitle>
       <span>Employees Page</span>
     </template>
-    <template #pageDescription>
+    <template #pageDesc>
       <span>See and manipulate all your Employees data </span>
     </template>
   </view-header>
@@ -33,19 +33,6 @@
       />
 
       <!-- Add Product Button -->
-      <q-btn
-        v-if="shouldShowIcon"
-        class="tw-ml-2 tw-whitespace-nowrap"
-        color="primary"
-        icon="add"
-        label="Add Product"
-      />
-      <q-btn
-        v-else
-        class="tw-ml-2 tw-whitespace-nowrap"
-        color="primary"
-        label="Add Product"
-      />
     </div>
     <!-- **** END ACTIONS **** -->
     <q-table
@@ -85,25 +72,21 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
-import { useQuasar } from "quasar";
-import { ProductColumnType } from "../types/entityTypes.ts";
-import { ProductRowType } from "../types/entityTypes.ts";
+import { ref } from "vue";
+import { TableColumn } from "../types/entityTypes.ts";
+import { ProductType } from "../types/entityTypes.ts";
 import ViewHeader from "../components/ViewHeader.vue";
 
-const $q = useQuasar();
 const searchTerm = ref<string>("");
 const model = ref<string>("");
-const shouldShowIcon = computed((): boolean => {
-  return !($q.screen.xs || $q.screen.sm);
-});
+
 function onEdit(props: number) {
   console.log(props);
 }
 function onDelete(props: number) {
   console.log(props);
 }
-const columns: ProductColumnType[] = [
+const columns: TableColumn<ProductType>[] = [
   {
     name: "productId",
     label: "Product ID",
@@ -142,7 +125,7 @@ const columns: ProductColumnType[] = [
   },
 ];
 
-const rows: ProductRowType[] = [
+const rows: ProductType[] = [
   {
     productId: 1,
     productName: "Moniter",
