@@ -1,11 +1,14 @@
 <template>
+  <!-- **** View heading **** -->
+  <view-header>
+    <template #pageTitle>
+      <span>Product Page</span>
+    </template>
+    <template #pageDescription>
+      <span>See and manipulate all your product data </span>
+    </template>
+  </view-header>
   <div class="q-pa-md">
-    <div class="tw-bg-primary tw-text-slate-900 tw-p-4 tw-shadow-md">
-      <h1 class="tw-text-2xl">Product Page</h1>
-      <p class="tw-text-lg tw-mt-2">
-        Explore our delightful treats and desserts.
-      </p>
-    </div>
     <!-- **** Actions **** -->
     <div class="tw-flex tw-justify-end tw-mb-4 tw-mt-4">
       <!-- Search Input -->
@@ -30,7 +33,12 @@
       />
 
       <!-- Add Product Button -->
-      <q-btn class="tw-ml-2" color="primary" icon="add" label="Add Product" />
+      <q-btn
+        class="tw-ml-2 tw-whitespace-nowrap"
+        color="primary"
+        icon="add"
+        label="Add Product"
+      />
     </div>
     <!-- **** END ACTIONS **** -->
     <q-table
@@ -73,6 +81,7 @@
 import { ref } from "vue";
 import { ProductColumnType } from "../types/entityTypes.ts";
 import { ProductRowType } from "../types/entityTypes.ts";
+import ViewHeader from "../components/ViewHeader.vue";
 
 const searchTerm = ref<string>("");
 const model = ref<string>("");

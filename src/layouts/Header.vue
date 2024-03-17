@@ -59,7 +59,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { useDrawerStore } from "../store/DrawerStore";
 
 const drawerStore = useDrawerStore();
