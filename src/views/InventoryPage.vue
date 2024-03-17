@@ -23,12 +23,10 @@
       <!-- Filter Select -->
       <q-select
         :label="'Filter by product name'"
-        transition-show="jump-up"
-        transition-hide="jump-up"
         filled
         v-model="model"
         :options="['Product name', 'employees', 'catagory']"
-        style="width: 250px"
+        class="tw-w-1/4"
         dense
       />
 
@@ -65,7 +63,9 @@
               color="positive"
               icon="visibility"
               @click="onDelete(props.row)"
-              ><q-tooltip class="!tw-bg-red-400"> See Detail </q-tooltip></q-btn
+              ><q-tooltip class="!tw-bg-green-400">
+                See Detail
+              </q-tooltip></q-btn
             >
             <q-btn
               size="sm"
@@ -83,7 +83,7 @@
               dense
               color="negative"
               icon="delete"
-              @click="onDelete(props.row)"
+              @click="confirm = true"
               ><q-tooltip class="!tw-bg-red-400">
                 Delete Inventory
               </q-tooltip></q-btn
@@ -93,6 +93,34 @@
       </template></q-table
     >
   </div>
+  <!-- **** Dialog For Delete **** -->
+  <q-dialog v-model="confirm" persistent>
+    <q-card>
+      <q-toolbar class="q-pa-md">
+        <q-avatar>
+          <!-- Icon representing delete action -->
+          <q-icon name="delete" color="negative" size="40px" />
+        </q-avatar>
+
+        <q-toolbar-title class="q-ml-sm">
+          <span class="text-weight-bold">Delete Inventory</span>
+        </q-toolbar-title>
+
+        <q-btn flat round dense icon="close" v-close-popup />
+      </q-toolbar>
+      <q-card-section class="row items-center">
+        <span class="q-ml-sm"
+          >Are you sure you want to delete this inventory?</span
+        >
+      </q-card-section>
+
+      <q-card-actions>
+        <q-btn flat label="Cancel" color="primary" v-close-popup />
+        <q-btn flat label="Delete" color="red-12" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
+  <!-- **** END Dialog For Delete **** -->
 </template>
 
 <script lang="ts" setup>
@@ -103,6 +131,7 @@ import { InventoryType } from "../types/entityTypes.ts";
 import ViewHeader from "../components/ViewHeader.vue";
 
 const $q = useQuasar();
+const confirm = ref<boolean>(false);
 const searchTerm = ref<string>("");
 const model = ref<string>("");
 const shouldShowIcon = computed((): boolean => {
@@ -155,7 +184,7 @@ const columns: TableColumn<InventoryType>[] = [
     name: "actions",
     label: "Actions",
     field: (row) => row,
-    align: "center",
+    align: "left",
   },
 ];
 

@@ -21,16 +21,24 @@
       />
 
       <!-- Filter Select -->
+
       <q-select
-        :label="'Filter by product name'"
-        transition-show="jump-up"
-        transition-hide="jump-up"
+        color="primary"
+        dense
         filled
         v-model="model"
         :options="['Product name', 'employees', 'catagory']"
-        style="width: 250px"
-        dense
-      />
+        label="Filter by"
+        class="tw-min-w-40"
+      >
+        <template v-if="model" v-slot:append>
+          <q-icon
+            name="cancel"
+            @click.stop.prevent="model = ''"
+            class="cursor-pointer"
+          />
+        </template>
+      </q-select>
 
       <!-- Add Product Button -->
       <q-btn

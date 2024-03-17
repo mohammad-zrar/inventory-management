@@ -23,12 +23,10 @@
       <!-- Filter Select -->
       <q-select
         :label="'Filter by product name'"
-        transition-show="jump-up"
-        transition-hide="jump-up"
         filled
         v-model="model"
         :options="['Product name', 'employees', 'catagory']"
-        style="width: 250px"
+        class="tw-w-1/4"
         dense
       />
 
