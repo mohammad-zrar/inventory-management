@@ -14,7 +14,6 @@ export interface InventoryType {
   employeeName: string;
   department: string;
   productName: string;
-
   quantity: number;
   dateAdded: string;
 }

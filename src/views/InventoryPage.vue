@@ -58,26 +58,37 @@
     >
       <template v-slot:body-cell-actions="props">
         <q-td :props="props">
-          <q-btn
-            dense
-            class="tw-mx-2"
-            color="secondary"
-            icon="mode_edit"
-            @click="onEdit(props.row)"
-          >
-            <q-tooltip class="!tw-bg-blue-400">
-              Edit Inventory
-            </q-tooltip></q-btn
-          >
-          <q-btn
-            dense
-            color="negative"
-            icon="delete"
-            @click="onDelete(props.row)"
-            ><q-tooltip class="!tw-bg-red-400">
-              Delete Inventory
-            </q-tooltip></q-btn
-          >
+          <div class="tw-flex tw-gap-1">
+            <q-btn
+              size="sm"
+              dense
+              color="positive"
+              icon="visibility"
+              @click="onDelete(props.row)"
+              ><q-tooltip class="!tw-bg-red-400"> See Detail </q-tooltip></q-btn
+            >
+            <q-btn
+              size="sm"
+              dense
+              color="secondary"
+              icon="mode_edit"
+              @click="onEdit(props.row)"
+            >
+              <q-tooltip class="!tw-bg-blue-400">
+                Edit Inventory
+              </q-tooltip></q-btn
+            >
+            <q-btn
+              size="sm"
+              dense
+              color="negative"
+              icon="delete"
+              @click="onDelete(props.row)"
+              ><q-tooltip class="!tw-bg-red-400">
+                Delete Inventory
+              </q-tooltip></q-btn
+            >
+          </div>
         </q-td>
       </template></q-table
     >
@@ -103,7 +114,83 @@ function onEdit(props: number) {
 function onDelete(props: number) {
   console.log(props);
 }
-const columns: TableColumn<InventoryType>[] = [];
+const columns: TableColumn<InventoryType>[] = [
+  {
+    name: "inventoryId",
+    label: "Inventory ID",
+    field: (row) => row.inventoryId,
+    align: "center",
+  },
+  {
+    name: "employeename",
+    label: "Employee Name",
+    field: (row) => row.employeeName,
+    align: "center",
+  },
+  {
+    name: "department",
+    label: "Department",
+    field: (row) => row.department,
+    align: "center",
+  },
+  {
+    name: "productName",
+    label: "Product Name",
+    field: (row) => row.productName,
+    align: "center",
+  },
+  {
+    name: "quantity",
+    label: "Quantity",
+    field: (row) => row.quantity,
+    align: "center",
+  },
+  {
+    name: "dateAdded",
+    label: "Date Added",
+    field: (row) => row.dateAdded,
+    align: "center",
+  },
+  {
+    name: "actions",
+    label: "Actions",
+    field: (row) => row,
+    align: "center",
+  },
+];
 
-const rows: InventoryType[] = [];
+const rows: InventoryType[] = [
+  {
+    inventoryId: 1,
+    employeeName: "Mohammad Zrar",
+    department: "IT",
+    productName: "Moniter",
+    quantity: 1,
+    dateAdded: "3/3/2024",
+  },
+  {
+    inventoryId: 1,
+    employeeName: "Mohammad Zrar",
+    department: "IT",
+    productName: "Moniter",
+    quantity: 1,
+    dateAdded: "3/3/2024",
+  },
+  {
+    inventoryId: 1,
+    employeeName: "Mohammad Zrar",
+    department: "IT",
+    productName: "Moniter",
+    quantity: 1,
+    dateAdded: "3/3/2024",
+  },
+  {
+    inventoryId: 1,
+    employeeName: "Mohammad Zrar",
+    department: "IT",
+    productName: "Moniter",
+    quantity: 1,
+    dateAdded: "3/3/2024",
+  },
+];
 </script>

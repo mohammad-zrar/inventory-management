@@ -4,7 +4,7 @@
     class="tw-border-2 tw-bg-gray-100"
     show-if-above
     :width="200"
-    :breakpoint="500"
+    :breakpoint="720"
   >
     <q-scroll-area class="fit">
       <q-list padding class="menu-list">
