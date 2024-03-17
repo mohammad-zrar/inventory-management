@@ -25,7 +25,9 @@
 
             <div clas="tw-grid ">
               <div class="tw-text-sm tw-normal-case">Mohammad Zrar</div>
-              <div class="tw-text-xs tw-normal-case">Front End Developer</div>
+              <div class="tw-text-xs tw-text-blue-900 tw-normal-case">
+                Front End Developer
+              </div>
             </div>
 
             <div class="tw-m-auto"><q-icon name="arrow_drop_down" /></div>
