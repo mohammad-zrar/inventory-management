@@ -25,7 +25,6 @@
       <q-select
         color="primary"
         dense
-        filled
         v-model="model"
         :options="['Product name', 'employees', 'catagory']"
         label="Filter by"

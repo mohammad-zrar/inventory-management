@@ -22,13 +22,21 @@
 
       <!-- Filter Select -->
       <q-select
-        :label="'Filter by product name'"
-        filled
+        color="primary"
+        dense
         v-model="model"
         :options="['Product name', 'employees', 'catagory']"
-        class="tw-w-1/4"
-        dense
-      />
+        label="Filter by"
+        class="tw-mr-1 tw-w-40"
+      >
+        <template v-if="model" v-slot:append>
+          <q-icon
+            name="cancel"
+            @click.stop.prevent="model = ''"
+            class="cursor-pointer"
+          />
+        </template>
+      </q-select>
 
       <!-- Add Product Button -->
       <q-btn
